@@ -1,0 +1,18 @@
+# Personal/application state
+**/recents.json
+**/session.json
+**/cookies*
+**/Cookies*
+**/machineid
+**/credentials*
+**/*-journal
+
+# Backups
+*.bak
+*.save
+*.pre-brain-shell
+
+# Caches
+**/cache/
+**/Cache/
+**/cache2/

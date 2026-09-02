@@ -1,0 +1,43 @@
+# ─────────────────────────────────────────────
+# Minimal Kitty / Hyprland prompt
+# ─────────────────────────────────────────────
+
+format = """
+$directory\
+$git_branch\
+$git_status\
+$character
+"""
+
+right_format = """
+$cmd_duration
+"""
+
+# Current directory
+[directory]
+style = "bold blue"
+format = "[$path]($style) "
+truncation_length = 3
+truncate_to_repo = false
+
+# Git branch
+[git_branch]
+symbol = "git:"
+style = "bold purple"
+format = "[$symbol$branch]($style) "
+
+# Git changes
+[git_status]
+style = "bold yellow"
+format = "[$all_status$ahead_behind]($style) "
+
+# Command success / failure
+[character]
+success_symbol = "[❯](bold green)"
+error_symbol = "[❯](bold red)"
+
+# Show command execution time on the right
+[cmd_duration]
+min_time = 500
+format = "[$duration](bold yellow)"
+show_milliseconds = true
