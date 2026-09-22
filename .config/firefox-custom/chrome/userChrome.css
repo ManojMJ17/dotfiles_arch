@@ -468,7 +468,8 @@ toolbarbutton.bookmark-item:not(.subviewbutton) {
 }
 } /* end @media not verticalTabs */
 
-#alltabs-button { display: none !important;
+/* #alltabs-button {
+  display: flex !important;
   position: fixed;
   inset-inline-end: 41px;
   
@@ -479,6 +480,7 @@ toolbarbutton.bookmark-item:not(.subviewbutton) {
   top: 4px;
 }
 }
+*/
 
 /* GLOBAL: Fix the Extensions button perfectly between Plus and Three-Dot */
 #navigator-toolbox #unified-extensions-button {
@@ -690,21 +692,22 @@ toolbar .toolbarbutton-1:not(#back-button, #forward-button, #PanelUI-menu-button
 }
 
 @media all {
-#nav-bar #alltabs-button,
-#TabsToolbar #alltabs-button {
-  width: 32px !important;
-  height: 32px !important;
-  background: var(--bg5) !important;
-  margin-top: -2px !important;
+  #nav-bar #alltabs-button,
+  #TabsToolbar #alltabs-button {
+    width: 32px !important;
+    height: 32px !important;
+    background: var(--bg5) !important;
+    border-radius: 50% !important;
+    box-shadow: var(--bs3) !important;
+    margin-top: 6px !important;
 
-  margin-top: 4px !important;
-
-> .toolbarbutton-badge-stack {
-  scale: 1.1;
-  width: 23px !important;
-  height: 23px !important;
-  padding: 4px 4px 4px 4px !important;
-}
+    > .toolbarbutton-badge-stack {
+      scale: 1.1;
+      width: 32px !important;
+      height: 32px !important;
+      padding: 7px !important;
+    }
+  }
 }
 
 #new-tab-button, #tabs-newtab-button {
@@ -1892,7 +1895,7 @@ tab-group:not([collapsed]) > &::after {
   @media not (-moz-platform: macos) {
     menupopup, panel[type="arrow"] {
       --panel-border-color: transparent !important;
-      --panel-border-radius: 20px !important;
+      --panel-border-radius: 16px !important;
       --panel-separator-color: transparent !important;
       --arrowpanel-background: light-dark(rgba(245, 243, 241, 0.75), rgba(35, 35, 38, 0.75)) !important;
       --arrowpanel-border-color: transparent !important;
@@ -1908,7 +1911,7 @@ tab-group:not([collapsed]) > &::after {
       appearance: none !important;
     }
     menupopup {
-      background-color: var(--panel-background) !important;
+      background-color: transparent !important;
     }
   }
 }
@@ -2004,8 +2007,8 @@ menupopup[needsgutter] {
   .popup-internal-box,
   #PopupAutoComplete > .autocomplete-richlistbox,
   .menupopup-arrowscrollbox {
-    background: transparent !important;
-    border-radius: 12px !important;
+    background: var(--panel-background) !important;
+    border-radius: 16px !important; 
   }
 
   /* Panel/arrow popup translucent blur */
@@ -2046,10 +2049,10 @@ menu, menupopup .bookmark-item {
 
 menu,
 menuitem {
-&:where([_moz-menuactive]:not([disabled])) {
-  background-color: var(--bg1) !important;
-  color: #fff !important;
-}
+  &:where([_moz-menuactive]:not([disabled])) {
+    background-color: var(--bg1) !important;
+    color: light-dark(#000, #fff) !important;
+  }
 }
 
 toolbarbutton.subviewbutton:not(
@@ -2814,7 +2817,7 @@ sidebar-tab-row {
   list-style-image: url("data:image/svg+xml,%3Csvg width='16' height='16' viewBox='0 0 16 16' fill='context-fill' fill-rule='evenodd' fill-opacity='context-fill-opacity' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M 5.5,5.63 A 0.5,0.46 0 0 0 5,5.17 H 3 A 0.5,0.46 0 0 0 3,6.09 H 5 A 0.5,0.46 0 0 0 5.5,5.63 Z m 0,2.28 A 0.5,0.46 0 0 0 5,7.45 H 3 A 0.5,0.46 0 0 0 3,8.37 H 5 A 0.5,0.46 0 0 0 5.5,7.91 Z m 0,2.28 A 0.5,0.46 0 0 0 5,9.74 H 3 A 0.5,0.46 0 0 0 3,10.65 H 5 A 0.5,0.46 0 0 0 5.5,10.19 Z M 16,12.4 V 3.65 A 2,2.12 0 0 0 14,1.52 H 2 A 2,2.12 0 0 0 0,3.65 V 12.4 A 2,2.12 0 0 0 2,14.53 h 12 a 2,2.12 0 0 0 2,-2.12 z M 1.25,12.56 V 3.49 l 0.6,-0.64 h 4.9 V 13.2 H 1.85 Z M 8,13.2 h 6.15 l 0.6,-0.64 V 3.49 L 14.15,2.85 H 8 Z'/%3E%3C/svg%3E") !important;
 }
 
-#alltabs-button { display: none !important;
+#alltabs-button {
   list-style-image: url("data:image/svg+xml,%3Csvg width='16' height='16' viewBox='0 0 16 16' fill='context-fill' stroke='context-fill' stroke-width='0.264' fill-opacity='context-fill-opacity' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='m 4.06,12.01 v -0.91 H 3.08 c -0.54,0 -0.98,-0.4 -0.98,-0.91 V 2.94 c 0,-0.5 0.44,-0.91 0.98,-0.91 h 6.86 c 0.54,0 0.98,0.4 0.98,0.91 v 0.91 h 0.98 V 2.94 c 0,-1 -0.87,-1.81 -1.96,-1.81 H 3.08 c -1.09,0 -1.96,0.81 -1.96,1.81 v 7.26 c 0,1 0.87,1.81 1.96,1.81 z M 6.06,3.99 c -1.09,0 -1.96,0.81 -1.96,1.81 v 7.26 c 0,1 0.87,1.81 1.96,1.81 h 6.86 c 1.09,0 1.96,-0.81 1.96,-1.81 V 5.81 c 0,-1 -0.87,-1.81 -1.96,-1.81 z m 0,0.91 h 6.86 c 0.54,0 0.98,0.4 0.98,0.91 v 7.26 c 0,0.5 -0.44,0.91 -0.98,0.91 H 6.06 c -0.54,0 -0.98,-0.4 -0.98,-0.91 V 5.81 c 0,-0.5 0.44,-0.91 0.98,-0.91 z'/%3E%3C/svg%3E") !important;
 }
 
@@ -5132,4 +5135,21 @@ html[taskbartab] #PersonalToolbar {
 
 
 
+/* === WALLPAPER BLENDED TOP BAR === 
 
+#navigator-toolbox {
+  background: transparent !important;
+  background-color: transparent !important;
+}
+
+#TabsToolbar,
+#nav-bar,
+#PersonalToolbar {
+  background: transparent !important;
+  background-color: transparent !important;
+}
+
+#main-window {
+  background: transparent !important;
+}
+ */
